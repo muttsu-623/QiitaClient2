@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.websarva.wings.android.qiitaclient2.model.Article
-import com.websarva.wings.android.qiitaclient2.model.User
 import com.websarva.wings.android.qiitaclient2.view.ArticleView
 
 class ArticleListAdapter(private val context: Context) : BaseAdapter() {

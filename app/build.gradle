@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -26,14 +27,28 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    // retrofitおよびrxAndroidのインストール
+    def retrofitVersion = '2.4.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    // rxlifecycleのインストール
+    def rxlifecycleVersion = '1.0'
+    implementation "com.trello:rxlifecycle-components:$rxlifecycleVersion"
+    implementation "com.trello:rxlifecycle-kotlin:$rxlifecycleVersion"
+    // kotterknifeのインストール
+    implementation 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+    // ankoのインストール
+    implementation 'org.jetbrains.anko:anko-sdk21:0.10.4'
 }
+
 repositories {
     mavenCentral()
+    maven { url 'http://oss.sonatype.org/content/repositories/snapshots/' }
 }
